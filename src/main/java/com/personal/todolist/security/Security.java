@@ -19,7 +19,7 @@ public class Security {
 public InMemoryUserDetailsManager createUser() {
 	
 
-	UserDetails userDetails1 = createUser("varun", "123");
+	UserDetails userDetails1 = createUser("admin", "123");
 	UserDetails userDetails2 = createUser("varun1", "1234");
 	
 	return new InMemoryUserDetailsManager (userDetails1,userDetails2);

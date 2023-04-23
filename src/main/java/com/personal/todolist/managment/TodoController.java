@@ -46,7 +46,7 @@ public String listAllTodos(ModelMap model){
 @RequestMapping(value="add-todo",method=RequestMethod.GET)
 public String add(ModelMap model){
 	String name = getLogged(model);
-	DataCollection dataCollection=new DataCollection(0,name,"",LocalDate.now().plusYears(1)  , false);
+	DataCollection dataCollection=new DataCollection(0,"","","",0,0);
 	model.put("dataCollection", dataCollection);
 	
 	return "addtodo";
@@ -56,7 +56,7 @@ public String add(ModelMap model, @Valid DataCollection dataCollection,BindingRe
 	if(result.hasErrors())return "addtodo";
 	
 	model.addAttribute("todos",dataCollection);
-	todoService.createtodo(getLogged(model),dataCollection.getDescription(),dataCollection.getTarget(), false);
+	todoService.createtodo(dataCollection.getName(),dataCollection.getAddress(),dataCollection.getEmail(),dataCollection.getPhone(),dataCollection.getSalary());
 	return "redirect:list-todos";
 }
 @RequestMapping(value="delete-todo")
@@ -88,7 +88,7 @@ public String updatepost(ModelMap model, @Valid DataCollection dataCollection,Bi
 	if(result.hasErrors())return "addtodo";
 	
 	model.addAttribute("todos",dataCollection);
-	dataCollection.setName(getLogged(model));
+
 	todoService.updatetodo(dataCollection);
 	return "redirect:list-todos";
 }

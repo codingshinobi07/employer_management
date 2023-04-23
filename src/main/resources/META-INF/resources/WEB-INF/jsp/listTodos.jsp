@@ -7,17 +7,19 @@
 
 <head>
    
-    <title>List Todo's</title>
+    <title>Management</title>
 </head>
 <body>
 
 
 <nav class="navbar navbar-expand-md navbar-light bg-light mb-3 p-1">
-	<a class="navbar-brand m-1" href="https://www.linkedin.com/in/varun-pandey-26556722a/" >About</a>
+
 	<div class="collapse navbar-collapse">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="/list-todos">Todos</a></li>
+		<li class="nav-item"><a class="navbar-brand" href="/">Emp Management System</a></li>
+			<li class="nav-item"><a class="navbar-brand" href="/">Home</a></li>
+			<li class="nav-item"><a class="navbar-brand"href="/list-todos">Data</a></li>
+				<li class="nav-item"><a class="navbar-brand"href="/add-todo">Add Emp</a></li>
 		</ul>
 	</div>
 	<ul class="navbar-nav">
@@ -45,18 +47,18 @@
 <div class="container">
 
 <hr>
-<div><h1 class="heading">Your ToDo Are</h1></div>
+<div><h1 class="heading">Employer Details-</h1></div>
 <table class="table">
 <thead>
 
 </thead>
 <tr>
 
-<th>Description</th>
-<th>Target Date</th>
-<th>Status</th>
-<th>Delete</th>
-<th>Update</th>
+<th>Name</th>
+<th>Address</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Salary</th>
 </tr>
 <tbody>
 
@@ -65,9 +67,11 @@
    <tr>
 
 
-    <td>${todo.description}</td>
-     <td>${todo.target}</td>
-      <td>${todo.done}</td>
+    <td>${todo.name}</td>
+     <td>${todo.address}</td>
+      <td>${todo.email}</td>
+            <td>${todo.phone}</td>
+                  <td>${todo.salary}</td>
       <td  > <a href="delete-todo?id=${todo.id }" class="btn btn-warning" >Delete</a></td>
         <td  > <a href="update?id=${todo.id }" class="btn btn-success" >Update</a></td>
   
@@ -80,7 +84,7 @@
   
   
    </table>
-   <a href="add-todo"  class="btn btn-success">Add todo</a>
+
    </div>
    <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
